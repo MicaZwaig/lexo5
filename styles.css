@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom right, #4A90E2, #D64292);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-size: 4.5rem; /* Tamaño más grande */
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif; /* Fuente más elegante, necesitarás incluirla */
+    background: linear-gradient(45deg, #ff00b3, #ff0080); /* Gradiente dorado a rosa */
+    -webkit-background-clip: text; /* Aplica el gradiente al texto */
+    background-clip: text;
+    color: transparent; /* Hace el texto transparente para mostrar el gradiente */
+    text-shadow: 3px 3px 8px rgba(255, 0, 191, 0.753); /* Sombra más pronunciada */
+                /* 0 0 15px rgba(255, 255, 255, 0.5);  Brillo sutil */
+    animation: pulse 2s infinite; /* Animación de pulso */
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    grid-gap: 10px;
+    margin: 20px 0;
+}
+
+.letter-box {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    transition: 0.3s;
+}
+
+.correct {
+    background: #4CAF50;
+    color: white;
+    border-color: #388E3C;
+}
+
+.present {
+    background: #FFC107;
+    color: white;
+    border-color: #FF9800;
+}
+
+.absent {
+    background: #9E9E9E;
+    color: white;
+    border-color: #616161;
+}
+
+#input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+input {
+    width: 200px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    text-align: center;
+    outline: none;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #ff4081;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: #e91e63;
+    transform: scale(1.05);
+}
+
+#message-container {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#message-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#message-text.win {
+    color: #87CEEB;
+    background: rgba(0, 0, 0, 0.1);
+    border: 2px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#message-text.lose {
+    color: #87CEEB;
+    background: rgba(0, 0, 0, 0.1);
+    border: 2px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#next-button {
+    margin-top: 0;
+}
+
+/* Animación de pulso */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+    h1 { font-size: 2.5rem; }
+    #board { grid-template-columns: repeat(5, 50px); grid-gap: 8px; }
+    .letter-box { width: 50px; height: 50px; font-size: 1.5rem; }
+    input { width: 160px; padding: 8px; font-size: 0.9rem; }
+    button { padding: 10px 20px; font-size: 0.9rem; }
+    #message-text { font-size: 1rem; }
+}
+
+@media (max-width: 400px) {
+    h1 { font-size: 2rem; }
+    #board { grid-template-columns: repeat(5, 40px); grid-gap: 6px; }
+    .letter-box { width: 40px; height: 40px; font-size: 1.2rem; }
+    input { width: 120px; padding: 6px; font-size: 0.8rem; }
+    button { padding: 8px 15px; font-size: 0.8rem; }
+    #message-text { font-size: 0.9rem; }
+}
